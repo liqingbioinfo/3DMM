@@ -17,7 +17,6 @@ import supportfunc.PairArrays;
 import supportfunc.QuickSortArr;
 
 public class SimHiC {
-	
 	/*
 	 * variables
 	 */
