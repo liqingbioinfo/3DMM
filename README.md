@@ -66,4 +66,4 @@ We provide two functions:
   skat,4.167E-8
   emmax,4.26E-10
 ## Acknowledgements
-I appreciate to have such an opportunity to leading this 3DMM project. I am grateful  for all instructions and supports provided by my supervisor Dr. Long and my lab mates.
+I appreciate to have such an opportunity to leading this 3DMM project. I am grateful for all supports provided by my supervisor Dr. Long and my lab mates.
