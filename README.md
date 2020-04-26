@@ -3,11 +3,11 @@
 Here, we present java code and executable jar file to run simulation study for 3DMM project. The association study is completed by another tool named JAWAMix5 developed in my lab. Details for JAMAMix5 can be found through following URL: https://github.com/theLongLab/Jawamix5.git.
 Note: The method 3DMM is also known as "compound" method in JAMAMix5.
 ## Contents
-1. [Installation]()
-2. [Functions]()
-3. [Commands]()
-4. [Input/output file format]()
-5. [Acknowledgements]()
+1. [Installation](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#installation)
+2. [Functions](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#functions)
+3. [Commands](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#commands)
+4. [Input/output file format](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#inputoutput-file-format)
+5. [Acknowledgements](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#acknowledgements)
 
 ## Installation
 We suggest to download the 3DMM_sim.jar file directly and run it using the regular command for jar file:
