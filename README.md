@@ -7,7 +7,7 @@ Note: The method ILMM is also known as "compound" method in JAMAMix5.
 2. [Functions](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#functions)
 3. [Commands](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#commands)
 4. [Input/output file format](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#inputoutput-file-format)
-5. [Examples](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#)
+5. [Examples](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#examples)
 6. [Acknowledgements](https://github.com/liqingbioinfo/3DMM/blob/master/README.md#acknowledgements)
 
 ## Installation
@@ -59,14 +59,14 @@ We provide two functions:
   * -ipf: phenotype file name (seperated by \t)
   * -p: rounds of permutation (>100 suggested)
   * -opf: output phenotype file name (seperated by \t)
-  * -index: the index of columns of phenotype to be permuated (df=0, useful while original phenotype file contains multiple columns)
+  * -index: the index of columns of phenotype to be permuated (df=0, useful while original phenotype file contains multiple columns) [optional]
 2. LLRT
   * -ig: genotype file (hdf5)
   * -ip: phenotype file name (one file contains permuated phenotypes)
   * -ik_g: global kinship matrix
   * -of: output folder name
   * -ic: file name which contains compounds
-  * -index: the index of columns of phenotype to be analyzed (df=0, useful while original phenotype file contains multiple columns)
+  * -index: the index of columns of phenotype to be analyzed (df=0, useful while original phenotype file contains multiple columns) [optional]
 3. LLRT_p
   * -io_br: input folder path (all results for one phenoytpe with double regions)
   * -io_sr: input folder path (all results for one phenoytpe with single region)
@@ -96,7 +96,20 @@ We provide two functions:
   emmax,4.26E-10
 
 ## Examples
-
+### Simulation (ILMM_sim.jar)
+1. simulation
+java -jar /path/to/ILMM_sim.jar simulation -genotype example.hdf5 -ov ./used_vars.txt -oc ./used_compounds.txt -op ./sim_pheno -sr ./sim_repot -info /path/to/compound_file -type compound -nr 500 -nc 1 -ns 5 -f 25000 -min 0.15 -max 0.49 -gc 0.3 -p add
+2. power
+java -jar /path/to/ILMM_sim.jar power -p_path_p compound_p_files.sorted.txt -padj ../p_adjust_value.txt -model compound -used_var used_vars.txt.balance.vars.txt -of ./power2/ -cre 0 -w 0
+### LLRT (LLRT.jar)
+1. permutation
+java -jar /path/to/LLR.jar permutation -ipf example.tsv -p 1000 -opf example_p1000.tsv -index 0
+2. LLRT
+java -jar /path/to/LLR.jar LLRT -ig example.hdf5 -ip example_p1000.tsv -ik_g example.rescaled.IBS -of /path/to/br/ -ic example.txt.br.c
+java -jar /path/to/LLR.jar LLRT -ig example.hdf5 -ip example_p1000.tsv -ik_g example.rescaled.IBS -of /path/to/sr/ -ic example.txt.sr.c
+3. LLRT_p
+java -jar /path/to/LLR.jar LLRT_p -io_br /path/to/br/ -io_sr /path/to/sr/ -ic 1:2350000:2360000_1:2480000:2490000 -pheno pheno_name -p 1000 -op_file pvalue
+4. Note: To run multiple phenotypes in HPC, please adapt Permutation_sbatch.py, LLRT_sbatch.py, LLRT_p_sbatch.py to your own work path.
 
 ## Acknowledgements
-I appreciate to have such an opportunity to leading this 3DMM project. I am grateful for all supports provided by my supervisor Dr. Long and my lab mates.
+I appreciate to have such a great opportunity to lead this ILMM project. I am grateful for all supports provided by my supervisor Dr. Long and my lab mates.
